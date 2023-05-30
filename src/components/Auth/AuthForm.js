@@ -36,7 +36,6 @@ const AuthForm = () => {
         }
       ).then((res) => {
         setLoading(false);
-
         if (res.ok) {
         } else {
           return res.json().then((data) => {
