@@ -1,10 +1,14 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useContext } from "react";
 
 import classes from "./AuthForm.module.css";
+import AuthContext from "../Store/AuthContext";
 
-const AuthForm = () => {
+const AuthForm = (props) => {
   const [isLogin, setIsLogin] = useState(true);
   const [isloading, setLoading] = useState(false);
+
+  const authcontxt = useContext(AuthContext);
+
   const Emailref = useRef();
   const Passwordref = useRef();
 
@@ -17,6 +21,12 @@ const AuthForm = () => {
 
     const enteredEmail = Emailref.current.value;
     const enteredPassword = Passwordref.current.value;
+
+    // const credentials = {
+    //   email: enteredEmail,
+    //   password: enteredPassword,
+    // };
+    // props.onClick(credentials);
 
     setLoading(true);
     let url = "";
@@ -56,6 +66,7 @@ const AuthForm = () => {
       })
       .then((data) => {
         console.log(data);
+        authcontxt.login(data.idToken);
       })
       .catch((err) => {
         alert(err.message);
