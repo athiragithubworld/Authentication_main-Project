@@ -3,7 +3,7 @@ import { useState, useRef, useContext } from "react";
 import classes from "./AuthForm.module.css";
 import AuthContext from "../Store/AuthContext";
 
-const AuthForm = (props) => {
+const AuthForm = () => {
   const [isLogin, setIsLogin] = useState(true);
   const [isloading, setLoading] = useState(false);
 
@@ -72,6 +72,7 @@ const AuthForm = (props) => {
         alert(err.message);
       });
   };
+
   return (
     <section className={classes.auth}>
       <h1>{isLogin ? "Login" : "Sign Up"}</h1>
