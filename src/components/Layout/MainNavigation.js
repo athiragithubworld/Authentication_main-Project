@@ -10,6 +10,7 @@ const MainNavigation = () => {
   const authcntx = useContext(AuthContext);
 
   const isLoggedIn = authcntx.isLoggedIn;
+
   const LogoutHandler = () => {
     authcntx.logout();
   };
