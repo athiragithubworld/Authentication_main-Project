@@ -28,11 +28,11 @@ const AuthProvider = (props) => {
 
     const remainingTime = calculateRemainingTime(expirationTime);
 
-    // setTimeout(logoutHandler, remainingTime);
+    setTimeout(logoutHandler, remainingTime);
 
-    setTimeout(() => {
-      logoutHandler();
-    }, 5000);
+    // setTimeout(() => {
+    //   logoutHandler();
+    // }, 5000);
   };
 
   const contextvalue = {
